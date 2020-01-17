@@ -98,8 +98,6 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
         newVar = lon1
         lon1 = lon2
         lon2 = newVar
-
-    print(lon1, lon2, lat1, lat2)
     # within will hold the cities that fall within the specified region
     within = [c for c in cities if c.lat <= lat1 and c.lat >=
               lat2 and c.lon <= lon1 and c.lon >= lon2]
