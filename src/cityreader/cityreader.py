@@ -88,15 +88,25 @@ float2 = float(cmd1.split(",")[1])
 float3 = float(cmd2.split(",")[0])
 float4 = float(cmd2.split(",")[1])
 
-if float3 > float1:
-    float1 = float(cmd2.split(",")[0])
-    float3 = float(cmd1.split(",")[0])
-if float2 < float4:
-    float2 = float(cmd2.split(",")[1])
-    float4 = float(cmd1.split(",")[1])
+# if float3 > float1:
+#     float1 = float(cmd2.split(",")[0])
+#     float3 = float(cmd1.split(",")[0])
+# if float2 < float4:
+#     float2 = float(cmd2.split(",")[1])
+#     float4 = float(cmd1.split(",")[1])
 
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+    if lat1 < lat2:
+        newV = lat2
+        lat2 = lat1
+        lat1 = newV
+    if lon1 < lon2:
+        newV = lon1
+        lon1 = lon2
+        lon2 = newV
+
+    print(lon1, lon2, lat1, lat2)
     # within will hold the cities that fall within the specified region
     within = [c for c in cities if c.lat <= lat1 and c.lat >=
               lat2 and c.lon <= lon1 and c.lon >= lon2]
